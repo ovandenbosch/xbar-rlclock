@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "An xbar plugin that provides a quick look at information about the Roxbury Latin school day.",
   "main": "plugin.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
