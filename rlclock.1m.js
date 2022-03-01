@@ -12,11 +12,13 @@ const getInfo = () => {
     .then((data) => {
       let dayType = data["dayType"];
       let hallLength = data["hallLength"];
-      let currentBlock = data["currentBlock"]["name"]
+      let currentBlock = data["currentBlock"]["name"];
 
-      console.log(dayType)
-      console.log(hallLength)
-      console.log(currentBlock)
+      console.log(`Day Type | ${dayType}`);
+      if (hallLength > 0) {
+        console.log(`Hall Length | ${hallLength}`);
+      }
+      console.log(`Current Block | ${currentBlock}`);
     });
 };
 
