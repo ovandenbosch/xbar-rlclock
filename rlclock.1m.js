@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/local/bin node
 
 
 // Metadata allows your plugin to show up in the app, and website.
