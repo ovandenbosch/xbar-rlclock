@@ -26,9 +26,9 @@ function getInfo() {
       console.log(`${currentBlock} Block - ${remainingMin} minutes remaining`);
       console.log("---");
       if (hallLength > 0) {
-        console.log(`Hall Length ${hallLength}`);
+        console.log(`Hall Length ${hallLength}| color=#fafcff`);
       }
-      console.log(`${dayType} Day`);
+      console.log(`${dayType} Day| color=#fafcff`);
     });
 
   fetch(scheduleUrl)
@@ -36,20 +36,24 @@ function getInfo() {
       return res.json();
     })
     .then((data) => {
-      console.log("---")
-      let periods = data["periods"]
-      periods.forEach(period => {
-        let pName = period["name"]
-        let block = period["block"]
+      console.log("---");
+      let periods = data["periods"];
+      periods.forEach((period) => {
+        let pName = period["name"];
+        let block = period["block"];
         if (block == undefined) {
           block = "";
         } else {
-          block += " Block"
+          block += " Block";
         }
-        let start = period["start"]
-        let end = period["end"]
-        console.log(`${pName} - ${block} ${start} - ${end}`)
+        let start = period["start"];
+        let end = period["end"];
+        console.log(`${pName} - ${block} ${start} - ${end}| color=#fafcff`);
       });
+      console.log("---")
+      console.log(
+        "App version: v1.0 🦊 | href=https://github.com/ovandenbosch/xbar-rlclock"
+      );
     });
 }
 
