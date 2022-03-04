@@ -22,9 +22,17 @@ function getInfo() {
       let dayType = data["dayType"];
       let hallLength = data["hallLength"];
       let currentBlock = data["currentBlock"]["block"];
-      let remainingMin = data["remainingMin"];
-      console.log(`${currentBlock} Block - ${remainingMin} minutes remaining`);
-      console.log("---");
+
+      // For after school
+      if (currentBlock == undefined) {
+        currentBlock = data["currentBlock"]["name"]
+        console.log(currentBlock)
+        console.log("---");
+      } else {
+        let remainingMin = data["remainingMin"];
+        console.log(`${currentBlock} Block - ${remainingMin} minutes remaining`);
+        console.log("---");
+      }
       if (hallLength > 0) {
         console.log(`Hall Length ${hallLength}| color=#fafcff`);
       }
@@ -37,10 +45,15 @@ function getInfo() {
     })
     .then((data) => {
       console.log("---");
+      let color = "#fafcff";
       let periods = data["periods"];
       periods.forEach((period) => {
         let pName = period["name"];
         let block = period["block"];
+        
+        // if (block == currentBlock) {
+        //   color = "#e61010";
+        // }
         if (block == undefined) {
           block = "";
         } else {
@@ -48,11 +61,14 @@ function getInfo() {
         }
         let start = period["start"];
         let end = period["end"];
-        console.log(`${pName} - ${block} ${start} - ${end}| color=#fafcff`);
+        console.log(`${pName} - ${block} ${start} - ${end}| color=${color}`);
       });
-      console.log("---")
+      console.log("---");
       console.log(
-        "App version: v1.0 🦊 | href=https://github.com/ovandenbosch/xbar-rlclock"
+        "App version: v1.0 | href=https://github.com/ovandenbosch/xbar-rlclock"
+      );
+      console.log(
+        "uRL 🦊 | href=https://roxburylatin.myschoolapp.com/app/student#studentmyday/progress"
       );
     });
 }
